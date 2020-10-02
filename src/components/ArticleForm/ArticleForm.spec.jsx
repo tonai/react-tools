@@ -28,29 +28,35 @@ describe('ArticleForm component', () => {
 
   it('should call onArticleChange when the title is updated', () => {
     const onArticleChange = jest.fn();
-    const wrapper = shallow(<ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />);
-    wrapper.find('input[name="title"]').simulate('change', {target: {name: 'title', value: 'test'}});
-    expect(onArticleChange).toBeCalledWith("title", "test");
+    const wrapper = shallow(
+      <ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />
+    );
+    wrapper.find('input[name="title"]').simulate('change', { target: { name: 'title', value: 'test' } });
+    expect(onArticleChange).toBeCalledWith('title', 'test');
   });
 
   it('should call onArticleChange when the category is updated', () => {
     const onArticleChange = jest.fn();
-    const wrapper = shallow(<ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />);
-    wrapper.find('input[name="title"]').simulate('change', {target: {name: 'category', value: '2'}});
-    expect(onArticleChange).toBeCalledWith("category", 2);
+    const wrapper = shallow(
+      <ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />
+    );
+    wrapper.find('input[name="title"]').simulate('change', { target: { name: 'category', value: '2' } });
+    expect(onArticleChange).toBeCalledWith('category', 2);
   });
 
   it('should call onArticleChange when the title is updated', () => {
     const onArticleChange = jest.fn();
-    const wrapper = shallow(<ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />);
-    wrapper.find('input[name="title"]').simulate('change', {target: {name: 'published', checked: false}});
-    expect(onArticleChange).toBeCalledWith("published", false);
+    const wrapper = shallow(
+      <ArticleForm article={article} categories={categories} onArticleChange={onArticleChange} />
+    );
+    wrapper.find('input[name="title"]').simulate('change', { target: { name: 'published', checked: false } });
+    expect(onArticleChange).toBeCalledWith('published', false);
   });
 
   it('should call onSubmit when the form is submitted', () => {
     const onSubmit = jest.fn();
     const wrapper = shallow(<ArticleForm article={article} categories={categories} onSubmit={onSubmit} />);
-    wrapper.simulate('submit', {preventDefault(){}});
+    wrapper.simulate('submit', { preventDefault() {} });
     expect(onSubmit).toBeCalled();
   });
 });

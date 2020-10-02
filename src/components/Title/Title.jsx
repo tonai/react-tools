@@ -14,7 +14,7 @@ export function Title(props) {
   return (
     <div className="Title">
       <h1 className="Title__title">{title}</h1>
-      {linkProps && (<Link className="Title__button" {...linkProps} />)}
+      {linkProps && <Link className="Title__button" {...linkProps} />}
     </div>
   );
 }

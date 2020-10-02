@@ -33,19 +33,23 @@ describe('Article component', () => {
   });
 
   it('should render the category title', () => {
-    const wrapper = mount((
+    const wrapper = mount(
       <Categories.Provider value={categories}>
         <MemoryRouter>
           <Article category={1} id={1} />
         </MemoryRouter>
       </Categories.Provider>
-    ));
+    );
     expect(wrapper.find('.Article__cell').at(1).text()).toEqual('News');
   });
 
   it('should select an article when clicked', async () => {
     const onArticleToggled = jest.fn();
-    const wrapper = mount(<MemoryRouter><Article id={1} onArticleToggled={onArticleToggled} /></MemoryRouter>);
+    const wrapper = mount(
+      <MemoryRouter>
+        <Article id={1} onArticleToggled={onArticleToggled} />
+      </MemoryRouter>
+    );
     const element = wrapper.find('.Article');
     element.simulate('click');
     await wrapper.update();
@@ -55,7 +59,10 @@ describe('Article component', () => {
   it('should call onRemove when the remove button is clicked', () => {
     const onRemove = jest.fn();
     const wrapper = shallow(<Article id={1} onRemove={onRemove} />);
-    wrapper.find('.Article__link').last().simulate('click', {preventDefault() {}});
+    wrapper
+      .find('.Article__link')
+      .last()
+      .simulate('click', { preventDefault() {} });
     expect(onRemove).toBeCalledWith(1);
   });
 });

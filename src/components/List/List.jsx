@@ -10,12 +10,8 @@ export function List(props) {
   const { articles, onRemove } = props;
   return (
     <div className="List">
-      {articles.map(article => (
-        <Article
-          key={article.id}
-          onRemove={onRemove}
-          {...article}
-        />
+      {articles.map((article) => (
+        <Article key={article.id} onRemove={onRemove} {...article} />
       ))}
     </div>
   );

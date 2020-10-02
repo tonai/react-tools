@@ -7,7 +7,7 @@ export function useFilteredArticles() {
   const [filters, setFilters] = useState({
     title: '',
     category: '',
-    published: '',
+    published: ''
   });
 
   useEffect(() => {
@@ -15,12 +15,13 @@ export function useFilteredArticles() {
   }, []);
 
   const filteredArticles = articles
-    .filter(article => !filters.title || article.title.indexOf(filters.title) !== -1)
-    .filter(article => !filters.category || article.category === Number(filters.category))
-    .filter(article =>
-      !filters.published ||
-      (filters.published === 'published' && article.published === true) ||
-      (filters.published === 'draft' && article.published === false)
+    .filter((article) => !filters.title || article.title.indexOf(filters.title) !== -1)
+    .filter((article) => !filters.category || article.category === Number(filters.category))
+    .filter(
+      (article) =>
+        !filters.published ||
+        (filters.published === 'published' && article.published === true) ||
+        (filters.published === 'draft' && article.published === false)
     );
 
   return { articles: filteredArticles, filters, setArticles, setFilters };

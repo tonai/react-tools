@@ -17,10 +17,12 @@ function App() {
         <Suspense fallback="loading...">
           <Header />
           <Switch>
-            <Route exact path="/" component={ArticlesPage}/>
-            <Route exact path="/article/:id?" render={/* istanbul ignore next */({match}) => (
-              <ArticlePage articleId={Number(match.params.id)} />
-            )}/>
+            <Route exact path="/" component={ArticlesPage} />
+            <Route
+              exact
+              path="/article/:id?"
+              render={/* istanbul ignore next */ ({ match }) => <ArticlePage articleId={Number(match.params.id)} />}
+            />
             <Redirect to="/" />
           </Switch>
         </Suspense>

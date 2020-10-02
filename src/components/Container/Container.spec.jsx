@@ -14,7 +14,11 @@ describe('Container component', () => {
   });
 
   it('should render children', () => {
-    const wrapper = shallow(<Container><div>Hello world !</div></Container>);
+    const wrapper = shallow(
+      <Container>
+        <div>Hello world !</div>
+      </Container>
+    );
     expect(wrapper.children().length).toEqual(1);
   });
 });

@@ -8,6 +8,6 @@ export function useCategories() {
   useEffect(() => {
     categoryService.getCategories().then(setCategories);
   }, []);
-  
+
   return categories;
 }

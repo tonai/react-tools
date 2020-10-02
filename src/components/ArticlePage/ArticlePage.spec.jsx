@@ -26,7 +26,11 @@ describe('ArticlePage component', () => {
 
   it('should not fetch the article (Add mode)', async () => {
     await act(async () => {
-      mount(<MemoryRouter><ArticlePage /></MemoryRouter>);
+      mount(
+        <MemoryRouter>
+          <ArticlePage />
+        </MemoryRouter>
+      );
     });
     expect(articleService.getArticle).not.toBeCalled();
   });
@@ -34,7 +38,11 @@ describe('ArticlePage component', () => {
   it('should fetch the article (Edit mode)', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = mount(<MemoryRouter><ArticlePage articleId={1} /></MemoryRouter>);
+      wrapper = mount(
+        <MemoryRouter>
+          <ArticlePage articleId={1} />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     expect(articleService.getArticle).toBeCalledWith(1);
@@ -50,7 +58,11 @@ describe('ArticlePage component', () => {
   it('should update the article', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = mount(<MemoryRouter><ArticlePage articleId={1} /></MemoryRouter>);
+      wrapper = mount(
+        <MemoryRouter>
+          <ArticlePage articleId={1} />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {

@@ -20,7 +20,11 @@ describe('ArticlesPage component', () => {
   it('should fetch the articles', async () => {
     jest.spyOn(articleService, 'getArticles');
     await act(async () => {
-      mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     expect(articleService.getArticles).toBeCalled();
     articleService.getArticles.mockClear();
@@ -29,7 +33,11 @@ describe('ArticlesPage component', () => {
   it('should update the state with the articles', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     expect(wrapper.find(List).prop('articles').length).toEqual(3);
@@ -38,7 +46,11 @@ describe('ArticlesPage component', () => {
   it('should filter on the title', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {
@@ -51,7 +63,11 @@ describe('ArticlesPage component', () => {
   it('should filter on the category', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {
@@ -64,7 +80,11 @@ describe('ArticlesPage component', () => {
   it('should filter on the "Published" status', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {
@@ -77,7 +97,11 @@ describe('ArticlesPage component', () => {
   it('should filter on the "Draft" status', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {
@@ -90,7 +114,11 @@ describe('ArticlesPage component', () => {
   it('should remove the article', async () => {
     let wrapper;
     await act(async () => {
-      wrapper = await mount(<MemoryRouter><ArticlesPage /></MemoryRouter>);
+      wrapper = await mount(
+        <MemoryRouter>
+          <ArticlesPage />
+        </MemoryRouter>
+      );
     });
     await wrapper.update();
     await act(async () => {

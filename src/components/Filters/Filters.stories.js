@@ -8,7 +8,7 @@ export default {
   argTypes: { onFilterChanged: { action: 'onFilterChanged' } }
 };
 
-const Template = (args) => (<Filters {...args} />);
+const Template = (args) => <Filters {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

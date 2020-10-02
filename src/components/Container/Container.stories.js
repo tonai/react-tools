@@ -8,9 +8,9 @@ export default {
   component: Container
 };
 
-const Template = (args) => (<Container {...args} />);
+const Template = (args) => <Container {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Lorem ipsum dolor sit amet.',
+  children: 'Lorem ipsum dolor sit amet.'
 };

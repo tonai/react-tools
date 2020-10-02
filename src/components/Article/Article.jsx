@@ -12,24 +12,28 @@ export function Article(props) {
   const [selected, setSelected] = useState(false);
   const categories = useContext(Categories);
 
-  const category = categories.find(category => category.id === categoryId);
+  const category = categories.find((category) => category.id === categoryId);
 
   return (
-    <div className={classnames('Article', {isSelected: selected})} onClick={handleClick} >
+    <div className={classnames('Article', { isSelected: selected })} onClick={handleClick}>
       <div className="Article__cell">{title}</div>
       <div className="Article__cell">{category ? category.title : categoryId}</div>
       <div className="Article__cell">{published ? 'Published' : 'Draft'}</div>
       <div className="Article__cell">
-        <Link className="Article__link" to={`/article/${id}`} >edit</Link>
+        <Link className="Article__link" to={`/article/${id}`}>
+          edit
+        </Link>
       </div>
       <div className="Article__cell">
-        <button className="Article__link" onClick={handleRemove} >remove</button>
+        <button className="Article__link" onClick={handleRemove}>
+          remove
+        </button>
       </div>
     </div>
   );
 
   function handleClick() {
-    setSelected(prevState => !prevState);
+    setSelected((prevState) => !prevState);
   }
 
   function handleRemove(event) {
@@ -45,10 +49,10 @@ Article.propTypes = {
   onRemove: PropTypes.func,
   published: PropTypes.bool,
   title: PropTypes.string
-}
+};
 
 Article.defaultProps = {
-  published: false,
+  published: false
 };
 
 export default memo(Article);

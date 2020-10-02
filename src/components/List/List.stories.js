@@ -8,7 +8,7 @@ export default {
   argTypes: { onRemove: { action: 'onRemove' } }
 };
 
-const Template = (args) => (<List {...args} />);
+const Template = (args) => <List {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

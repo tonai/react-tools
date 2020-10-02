@@ -8,7 +8,7 @@ export default {
   component: Title
 };
 
-const Template = (args) => (<Title {...args} />);
+const Template = (args) => <Title {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

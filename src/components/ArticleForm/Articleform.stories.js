@@ -8,11 +8,11 @@ export default {
   component: ArticleForm,
   argTypes: {
     onArticleChange: { action: 'onArticleChange' },
-    onSubmit: { action: 'onSubmit' },
+    onSubmit: { action: 'onSubmit' }
   }
 };
 
-const Template = (args) => (<ArticleForm {...args} />);
+const Template = (args) => <ArticleForm {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

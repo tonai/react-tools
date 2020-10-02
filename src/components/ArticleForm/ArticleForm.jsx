@@ -15,7 +15,7 @@ export function ArticleForm(props) {
       <div className="ArticleForm__table">
         <div className="ArticleForm__row">
           <div className="ArticleForm__cell">
-            <label htmlFor="title" >Title :</label>
+            <label htmlFor="title">Title :</label>
           </div>
           <div className="ArticleForm__cell">
             <input id="title" name="title" onChange={handleChange} type="text" value={article.title} />
@@ -23,20 +23,22 @@ export function ArticleForm(props) {
         </div>
         <div className="ArticleForm__row">
           <div className="ArticleForm__cell">
-            <label htmlFor="title" >Category :</label>
+            <label htmlFor="title">Category :</label>
           </div>
           <div className="ArticleForm__cell">
-            <select id="category" name="category" onChange={handleChange} value={article.category} >
+            <select id="category" name="category" onChange={handleChange} value={article.category}>
               <option value=""></option>
-              {categories.map(category => (
-                <option key={category.id} value={category.id} >{category.title}</option>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.title}
+                </option>
               ))}
             </select>
           </div>
         </div>
         <div className="ArticleForm__row">
           <div className="ArticleForm__cell">
-            <label htmlFor="title" >Content :</label>
+            <label htmlFor="title">Content :</label>
           </div>
           <div className="ArticleForm__cell">
             <textarea id="content" name="content" onChange={handleChange} value={article.content} />
@@ -44,10 +46,16 @@ export function ArticleForm(props) {
         </div>
         <div className="ArticleForm__row">
           <div className="ArticleForm__cell">
-            <label htmlFor="title" >Published :</label>
+            <label htmlFor="title">Published :</label>
           </div>
           <div className="ArticleForm__cell">
-            <input checked={article.published} id="published" name="published" onChange={handleChange} type="checkbox" />
+            <input
+              checked={article.published}
+              id="published"
+              name="published"
+              onChange={handleChange}
+              type="checkbox"
+            />
           </div>
         </div>
       </div>
@@ -61,7 +69,7 @@ export function ArticleForm(props) {
     const name = event.target.name;
     let value;
 
-    switch(name) {
+    switch (name) {
       case 'category':
         value = Number(event.target.value);
         break;

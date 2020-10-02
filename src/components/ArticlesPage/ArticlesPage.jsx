@@ -14,44 +14,43 @@ const linkProps = { children: 'Add new article', to: '/article' };
 function ArticlesPage() {
   const { articles, filters, setArticles, setFilters } = useFilteredArticles();
 
-  const handleFilterChanged = useCallback((filter, value) => 
-    setFilters((prevState) => ({
-      ...prevState,
-      [filter]: value,
-    }))
-  , [setFilters]);
+  const handleFilterChanged = useCallback(
+    (filter, value) =>
+      setFilters((prevState) => ({
+        ...prevState,
+        [filter]: value
+      })),
+    [setFilters]
+  );
 
-  const handleRemove = useCallback((id) => {
-    // Naive (ensure new list is sync with BE)
-    // articleService
-    //   .removeArticle(id)
-    //   .then(() => articleService.getArticles())
-    //   .then(setArticles);
+  const handleRemove = useCallback(
+    (id) => {
+      // Naive (ensure new list is sync with BE)
+      // articleService
+      //   .removeArticle(id)
+      //   .then(() => articleService.getArticles())
+      //   .then(setArticles);
 
-    // Optimistic (good when BE is slow)
-    // setArticles(prevState => prevState.filter(article => article.id !== id));
-    // articleService
-    //   .removeArticle(id)
-    //   .catch(() => articleService.getArticles().then(setArticles));
+      // Optimistic (good when BE is slow)
+      // setArticles(prevState => prevState.filter(article => article.id !== id));
+      // articleService
+      //   .removeArticle(id)
+      //   .catch(() => articleService.getArticles().then(setArticles));
 
-    // Classic
-    articleService
-      .removeArticle(id)
-      .then(() => setArticles(prevState => prevState.filter(article => article.id !== id)));
-  }, [setArticles]);
+      // Classic
+      articleService
+        .removeArticle(id)
+        .then(() => setArticles((prevState) => prevState.filter((article) => article.id !== id)));
+    },
+    [setArticles]
+  );
 
   return (
     <>
       <Title linkProps={linkProps} title={title} />
       <Container>
-        <Filters
-          filters={filters}
-          onFilterChanged={handleFilterChanged}
-        />
-        <List
-          articles={articles}
-          onRemove={handleRemove}
-        />
+        <Filters filters={filters} onFilterChanged={handleFilterChanged} />
+        <List articles={articles} onRemove={handleRemove} />
       </Container>
     </>
   );

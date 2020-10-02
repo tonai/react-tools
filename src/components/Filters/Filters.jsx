@@ -21,19 +21,15 @@ export function Filters(props) {
   return (
     <div className="Filters">
       <div className="Filters__cell">
-        <input
-          name="title"
-          onChange={handleChange}
-          type="text"
-          ref={inputRef}
-          value={title}
-        />
+        <input name="title" onChange={handleChange} type="text" ref={inputRef} value={title} />
       </div>
-      <div className="Filters__cell" >
-        <select name="category" onChange={handleChange} value={category} >
-          <option value="" ></option>
-          {categories.map(category => (
-            <option key={category.id} value={category.id} >{category.title}</option>
+      <div className="Filters__cell">
+        <select name="category" onChange={handleChange} value={category}>
+          <option value=""></option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.title}
+            </option>
           ))}
         </select>
       </div>
@@ -43,7 +39,13 @@ export function Filters(props) {
           All
         </label>
         <label className="Filters__label">
-          <input checked={published === 'published'} name="published" onChange={handleChange} type="radio" value="published" />
+          <input
+            checked={published === 'published'}
+            name="published"
+            onChange={handleChange}
+            type="radio"
+            value="published"
+          />
           Published
         </label>
         <label className="Filters__label">

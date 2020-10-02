@@ -16,34 +16,32 @@ function ArticlePage(props) {
   const [article, setArticle] = useArticle(articleId);
   const [redirect, setRedirect] = useState(null);
 
-  const handleArticleChange = useCallback((name, value) => 
-    setArticle(prevState => ({
-      ...prevState,
-      [name]: value
-    }))
-  , [setArticle]);
+  const handleArticleChange = useCallback(
+    (name, value) =>
+      setArticle((prevState) => ({
+        ...prevState,
+        [name]: value
+      })),
+    [setArticle]
+  );
 
-  const handleSubmit = useCallback(() => 
-    articleId
-      ? articleService.updateArticle(article)
-      : articleService.addArticle(article).then(article => setRedirect(`/article/${article.id}`))
-  , [article, articleId, setRedirect]);
+  const handleSubmit = useCallback(
+    () =>
+      articleId
+        ? articleService.updateArticle(article)
+        : articleService.addArticle(article).then((article) => setRedirect(`/article/${article.id}`)),
+    [article, articleId, setRedirect]
+  );
 
-  const title = articleId
-    ? `Edit article (${articleId})`
-    : 'Add new article';
+  const title = articleId ? `Edit article (${articleId})` : 'Add new article';
 
   return (
     <>
       <Title linkProps={linkProps} title={title} />
       <Container>
-        <ArticleForm
-          article={article}
-          onArticleChange={handleArticleChange}
-          onSubmit={handleSubmit}
-        />
+        <ArticleForm article={article} onArticleChange={handleArticleChange} onSubmit={handleSubmit} />
       </Container>
-      {redirect && (<Redirect to={redirect}/>)}
+      {redirect && <Redirect to={redirect} />}
     </>
   );
 }

@@ -5,11 +5,7 @@ import './Container.css';
 
 function Container(props) {
   const { children } = props;
-  return (
-    <div className="Container">
-      {children}
-    </div>
-  );
+  return <div className="Container">{children}</div>;
 }
 
 Container.propTypes = {

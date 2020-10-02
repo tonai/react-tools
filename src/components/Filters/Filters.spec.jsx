@@ -25,17 +25,17 @@ describe('Filters component', () => {
     const onFilterChanged = jest.fn();
     const wrapper = mount(<Filters onFilterChanged={onFilterChanged} />);
     const input = wrapper.find('input[name="title"]');
-    input.simulate('change', {target: {name: 'title', value: 'test'}});
+    input.simulate('change', { target: { name: 'title', value: 'test' } });
     expect(onFilterChanged).toBeCalledWith('title', 'test');
   });
 
   it('should call onFilterChanged when category changes', () => {
     const onFilterChanged = jest.fn();
-    const wrapper = mount((
+    const wrapper = mount(
       <Categories.Provider value={categories}>
         <Filters onFilterChanged={onFilterChanged} />
       </Categories.Provider>
-    ));
+    );
     const select = wrapper.find('select');
     select.instance().value = '1';
     select.simulate('change');
