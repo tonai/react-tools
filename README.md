@@ -1,51 +1,3 @@
-# Compatibility
-
-## Polyfills (IE11)
-
-Start IE11 using VirtualBox (https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
-
-Check your IP with `ifconfig` and open the app using your local IP (exemple: http://172.19.0.1:3000/).
-
-```bash
-npm install --D react-app-polyfill
-```
-
-Update file `package.json` with:
-
-```json
-"browserslist": [
-  ">0.2%",
-  "not dead",
-  "not ie <= 11",
-  "not op_mini all",
-  "IE 11"
-]
-```
-
-Create file `src/polyfills.js` with:
-
-```js
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/stable';
-```
-
-Update file `src/index.js` with:
-
-```js
-import './polyfills';
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import App from './components/App/App';
-
-import './assets/css/main.css';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-```
-
-Delete the `node_modules/.cache` directory (or reinstall packages).
-
 # Misc
 
 ## .npmrc
@@ -192,6 +144,66 @@ Create file `.stylelintrc.json` with:
   "extends": ["stylelint-config-standard", "stylelint-config-prettier"]
 }
 ```
+
+# Compatibility
+
+## CSS reset
+
+Update file `src/assets/css/main.css` with:
+
+```css
+@import-normalize;
+
+body {
+  margin: 0;
+}
+```
+
+## Polyfills (IE11)
+
+Start IE11 using VirtualBox (https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+
+Check your IP with `ifconfig` and open the app using your local IP (exemple: http://172.19.0.1:3000/).
+
+```bash
+npm install --D react-app-polyfill
+```
+
+Update file `package.json` with:
+
+```json
+"browserslist": [
+  ">0.2%",
+  "not dead",
+  "not ie <= 11",
+  "not op_mini all",
+  "IE 11"
+]
+```
+
+Create file `src/polyfills.js` with:
+
+```js
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+```
+
+Update file `src/index.js` with:
+
+```js
+import './polyfills';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import App from './components/App/App';
+
+import './assets/css/main.css';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+Delete the `node_modules/.cache` directory (or reinstall packages).
 
 # Automatisation
 
