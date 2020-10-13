@@ -265,22 +265,17 @@ And :
 
 ```json
 "lint-staged": {
-  "./**/*.{js,jsx,ts,tsx}": [
+  "*.{js,jsx,ts,tsx}": [
     "eslint --max-warnings=0 --fix",
-    "git add",
     "prettier --write",
-    "git add",
-    "react-scripts test --bail --findRelatedTests"
+    "cross-env CI=true react-scripts test --bail --findRelatedTests"
   ],
-  "./**/*.{css,scss,sass}": [
+  "*.{css,scss,sass}": [
     "stylelint --fix",
-    "git add",
-    "prettier --write",
-    "git add"
+    "prettier --write"
   ],
-  "./**/*.{json,md,html}": [
-    "prettier --write",
-    "git add"
+  "*.{json,md,html}": [
+    "prettier --write"
   ]
 },
 ```
