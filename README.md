@@ -268,7 +268,7 @@ And :
   "*.{js,jsx,ts,tsx}": [
     "eslint --max-warnings=0 --fix",
     "prettier --write",
-    "cross-env CI=true react-scripts test --bail --findRelatedTests"
+    "cross-env CI=true react-scripts test --bail --findRelatedTests --env jest-environment-jsdom-fourteen"
   ],
   "*.{css,scss,sass}": [
     "stylelint --fix",

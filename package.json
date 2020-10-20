@@ -19,16 +19,15 @@
     "@storybook/node-logger": "6.0.21",
     "@storybook/preset-create-react-app": "3.1.4",
     "@storybook/react": "6.0.21",
-    "@testing-library/react": "11.0.4",
-    "@testing-library/react-hooks": "3.4.1",
+    "@testing-library/jest-dom": "5.11.4",
+    "@testing-library/react": "11.1.0",
+    "@testing-library/react-hooks": "3.4.2",
     "babel-loader": "8.1.0",
     "commitlint": "11.0.0",
     "concurrently": "5.3.0",
     "cross-env": "7.0.2",
     "cypress": "5.2.0",
     "cypress-plugin-snapshots": "1.4.4",
-    "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.3",
     "eslint-config-prettier": "6.12.0",
     "eslint-plugin-cypress": "2.11.1",
     "husky": "4.3.0",
@@ -37,6 +36,7 @@
     "prettier": "2.1.2",
     "react-app-polyfill": "1.0.6",
     "react-is": "16.13.1",
+    "react-test-renderer": "16.14.0",
     "stylelint": "13.7.2",
     "stylelint-config-prettier": "8.0.2",
     "stylelint-config-standard": "20.0.0",
@@ -46,7 +46,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env jest-environment-jsdom-fourteen",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
@@ -84,7 +84,7 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings=0 --fix --no-ignore",
       "prettier --write",
-      "cross-env CI=true react-scripts test --bail --findRelatedTests"
+      "cross-env CI=true react-scripts test --bail --findRelatedTests --env jest-environment-jsdom-fourteen"
     ],
     "*.{css,scss,sass}": [
       "stylelint --fix",
